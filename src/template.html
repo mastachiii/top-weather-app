@@ -5,5 +5,74 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
     </head>
-    <body></body>
+    <body>
+        <main>
+            <div>
+                <input type="text" placeholder="Check the weather..." />
+                <button type="button"></button>
+            </div>
+            <div>
+                <div class="main-weather-div">
+                    <span class="location-info">
+                        <h2>Address</h2>
+                        <p>Date and time</p>
+                    </span>
+                    <div class="weather-status">
+                        <img
+                            src='<%= require("./assets/icons/weather-status/cloudy.svg") %>'
+                            alt=""
+                        />
+                        <p>Weather Status</p>
+                    </div>
+                    <div class="weather-info">
+                        <span>
+                            <p>Temp</p>
+                            <p>Temperature</p>
+                        </span>
+                        <span>
+                            <p>Hum</p>
+                            <p>Humidity</p>
+                        </span>
+                        <span>
+                            <p>Wind</p>
+                            <p>Wind Speed</p>
+                        </span>
+                    </div>
+                </div>
+                <div class="weekly-weather-div">
+                    <h1>Weekly Forecast</h1>
+                    <div>
+                        <p>Day</p>
+                        <div>
+                            <p>Temperature (°C)</p>
+                            <p>Humidity (%)</p>
+                            <p>Wind Speed (km/h)</p>
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </main>
+        <div class="landing">
+            <img
+                src='<%= require("./assets/icons/weather-landing/smiling.svg") %>'
+                alt=""
+            />
+            <p>Simple Weather App. Go Crazy!</p>
+        </div>
+        <div class="error">
+            <img
+                src='<%= require("./assets/icons/weather-error/error.svg") %>'
+                alt=""
+            />
+            <p>No results found. Do you want to try again?</p>
+        </div>
+        <div class="loading">
+            <img
+                src='<%= require("./assets/icons/weather-loading/loading.svg") %>'
+                alt=""
+            />
+            <p>Loading</p>
+        </div>
+    </body>
 </html>

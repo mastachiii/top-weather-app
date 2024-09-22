@@ -1,0 +1,205 @@
+@font-face {
+    font-family: 'Grafipaint';
+    src: url(../assets/fonts/Grafipaint.ttf);
+}
+
+html {
+    width: calc(1900rem / 16);
+    height: calc(900rem / 16);
+    font-family: 'Grafipaint', system-ui, -apple-system;
+    --main-bg-color: #1a2e05;
+    --main-text-color: #f8fafc;
+    background-color: var(--main-bg-color);
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    color: var(--main-text-color);
+
+    > main {
+        > div:first-child {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: calc(12rem / 16);
+            margin: calc(12rem / 16) 0 0 0;
+            > input {
+                padding: calc(10rem / 16);
+                border: solid 1px var(--main-text-color);
+                border-radius: calc(50rem / 16);
+                background: none;
+                color: var(--main-text-color);
+                font-size: calc(25rem / 16);
+            }
+
+            > input:focus {
+                outline: none;
+            }
+
+            > button {
+                width: calc(30rem / 16);
+                height: calc(30rem / 16);
+                border: none;
+                background: none;
+                background-image: url(../assets/icons/weather-search/search.svg);
+                background-repeat: no-repeat;
+                background-size: calc(30rem / 16);
+            }
+        }
+        > div:nth-child(2) {
+            display: none;
+            align-items: center;
+            flex-shrink: 1;
+            justify-content: space-between;
+            margin: calc(80rem / 16) calc(70rem / 16) 0 0;
+
+            > .main-weather-div {
+                width: 60%;
+                height: calc(600rem / 16);
+                display: grid;
+                grid-template-columns: 1fr 1fr calc(200rem / 16);
+                grid-template-rows: repeat(3, 1fr);
+
+                > span.location-info {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    gap: calc(10rem / 16);
+                    grid-column: span 2;
+
+                    > h2 {
+                        align-self: center;
+                        margin: calc(20rem / 16) 0 0 calc(20rem / 16);
+                        font-size: calc(70rem / 16);
+                    }
+
+                    > p {
+                        margin: calc(40rem / 16) 0 0 0;
+                        font-size: calc(25rem / 16);
+                    }
+                }
+
+                > div.weather-status {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin: 0 0 0 calc(20rem / 16);
+
+                    > img {
+                        width: calc(200rem / 16);
+                        height: calc(200rem / 16);
+                    }
+
+                    > p {
+                        font-size: calc(30rem / 16);
+                    }
+                }
+
+                > div.weather-info {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    text-align: center;
+                    grid-column: span 3;
+                    grid-row: span 2;
+
+                    > span {
+                        display: flex;
+                        flex-direction: column;
+
+                        > p:first-child {
+                            font-size: calc(60rem / 16);
+                            margin: 0 0 0 0;
+                        }
+
+                        > p:nth-child(2) {
+                            font-size: calc(20rem / 16);
+                        }
+                    }
+                }
+            }
+
+            > .weekly-weather-div {
+                width: 35%;
+                height: calc(600rem / 16);
+                margin: 0 calc(20rem / 16) 0 0;
+
+                > h1 {
+                    font-size: calc(50rem / 16);
+                }
+
+                > div:nth-child(2) {
+                    display: flex;
+                    justify-content: space-between;
+
+                    > p {
+                        font-size: calc(15rem / 16);
+                    }
+
+                    > div {
+                        display: flex;
+                        justify-content: center;
+                        margin: 0 calc(2 0rem / 16) 0 0;
+                        gap: calc(60rem / 16);
+
+                        > p {
+                            font-size: calc(15rem / 16);
+                        }
+                    }
+                }
+
+                > div:nth-child(3) {
+                    display: flex;
+                    flex-direction: column;
+                    > div {
+                        display: flex;
+                        justify-content: space-between;
+                        gap: calc(40rem / 16);
+
+                        > p {
+                            width: calc(140rem / 16);
+                            font-size: calc(25rem / 16);
+                        }
+
+                        > div {
+                            width: calc(400rem / 16);
+                            display: flex;
+                            gap: calc(120rem / 16);
+                            margin: calc(20rem / 16) 0 0 0;
+                            > p {
+                                margin: 0;
+                                font-size: calc(25rem / 16);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .landing,
+    .error,
+    .loading {
+        width: 100%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        > img {
+            width: calc(150rem / 16);
+            height: calc(150rem / 16);
+        }
+
+        > p {
+            font-size: calc(35rem / 16);
+        }
+    }
+
+    .landing {
+        display: flex;
+    }
+}

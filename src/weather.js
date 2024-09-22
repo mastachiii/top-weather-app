@@ -1,25 +1,26 @@
-async function getWeatherInfo(location, variable) {
+async function getWeatherInfo(location) {
     try {
         const response = await fetch(
-            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast?locations=${location}&aggregateHours=24&include=hours,current&iconSet=icons1&contentType=json&key=KKPQ8XD2D9K6C4SGWUE76Q67L`
+            `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/forecast?locations=${location}&aggregateHours=24&include=hours,current,locationNames&iconSet=icons1&contentType=json&key=KKPQ8XD2D9K6C4SGWUE76Q67L`
         );
         const data = await response.json();
         const fullWeatherData = data.locations[location];
+        const currentWeatherData = fullWeatherData.values[0];
         const relevantWeatherData = {
             address: fullWeatherData.address,
-            dateTime: fullWeatherData.currentConditions.datetime,
-            temp: fullWeatherData.currentConditions.temp,
-            // All the data for the current day is provided except for a description of the weather condition,
-            // so I had to go into the value array and get it.
-            condition: fullWeatherData.values[0].conditions,
-            conditionIcon: fullWeatherData.currentConditions.icon,
+            dateTime: currentWeatherData.datetimeStr,
+            temperature: currentWeatherData.temp,
+            humidity: currentWeatherData.humidity,
+            windSpeed: currentWeatherData.wspd,
+            conditionIcon: currentWeatherData.icon,
+            conditionStatus: currentWeatherData.conditions,
             weeklyData: fullWeatherData.values
                 .filter((currentData, index) => index > 0 && index < 8)
                 .map((currentData) => ({
                     dateTime: currentData.datetimeStr,
-                    temp: currentData.temp,
-                    condition: currentData.conditions,
-                    conditionIcon: currentData.icon,
+                    temperature: currentData.temp,
+                    humidity: currentData.humidity,
+                    windSpeed: currentData.wspd,
                 })),
         };
 
